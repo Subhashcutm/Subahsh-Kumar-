@@ -1,0 +1,102 @@
+# include <stdio.h> 
+#include<stdlib.h> 
+# define size 5 
+int front = -1; 
+int rear = -1; 
+int queue[size]; 
+void ins(); 
+void del(); 
+void dis(); 
+int main() 
+{ 
+ int choice; 
+ while(1){ 
+ printf("\n\n*** MENU ***\n"); 
+ printf("1. Insertion\n2. Deletion\n3. Display\n4. Exit"); 
+ printf("\nEnter your choice: "); 
+ scanf("%d",&choice); 
+ switch(choice){ 
+ case 1: printf("Enter the value to be insert: "); 
+ //scanf("%d",&value); 
+ ins(); 
+ break; 
+ case 2: del(); 
+ break; 
+ case 3: dis(); 
+ break; 
+ case 4: goto exit; 
+ default: printf("\nWrong selection!!! Try again!!!"); 
+ } 
+ } 
+ exit: 
+ return 0; 
+} 
+void ins(){ 
+if(size == rear){ 
+ printf("queue is full"); 
+ } 
+ else{ 
+ int element; 
+ scanf("%d",&element); 
+ queue[rear]= element; 
+ rear ++; 
+ } 
+ } 
+void del(){ 
+ if(front == rear){ 
+ printf("queue is empty"); 
+ } 
+ else{ 
+ printf("deleted item:%d",queue[front]); 
+ int i; 
+ for(i=0;i<rear-1;i++){ 
+ queue[i]=queue[i+1]; 
+ }
+ rear --; 
+ } 
+ } 
+void dis(){ 
+ if(front == rear){ 
+ printf("queue is empty"); 
+ } 
+ else{ 
+ printf("queue element:"); 
+ int i; 
+ for(i=front;i<rear;i++){ 
+ printf("%d",queue[i]); 
+ } 
+ rear --; 
+ } 
+ } 
+ #include <stdio.h> 
+int main() 
+{ 
+ int n,a[20],i,j,temp; 
+ printf("Enter number of elements to present in array:\n"); 
+ scanf("%d",&n); 
+ printf("Enter elements:\n"); 
+ for(i=0;i<n;i++){ 
+ scanf("%d",&a[i]); 
+ } 
+ printf("Elements before sorting:\n"); 
+ for(i=0;i<n;i++){ 
+ printf("%d ",a[i]); 
+ } 
+
+ for(i=0;i<n-1;i++){ 
+ for( j=0;j<n-1-i;j++){ 
+ if(a[j]>a[j+1]){ 
+ temp=a[j]; 
+ a[j]=a[j+1]; 
+ a[j+1]=temp; 
+ } 
+ } 
+ } 
+ printf("\nElement List after sorting:\n"); 
+ for(i = 0; i<n; i++) 
+ { 
+ printf("%d ",a[i]); 
+ } 
+ return 0; 
+} 
+
